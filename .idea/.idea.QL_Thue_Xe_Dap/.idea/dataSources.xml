@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="QL_Thue_Xe_Dap@localhost" uuid="56135db2-3458-4586-b314-06231542a8dd">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://localhost;database=jdbc:sqlserver://DESKTOP-RHIBN05;databaseName=QL_Thue_Xe_Dap;instanceName=SQLEXPRESS;encrypt=false;database=QL_Thue_Xe_Dap</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

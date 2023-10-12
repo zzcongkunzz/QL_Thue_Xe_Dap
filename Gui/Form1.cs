@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QL_Thue_Xe_Dap.Model;
 
 namespace QL_Thue_Xe_Dap
 {
@@ -15,6 +16,7 @@ namespace QL_Thue_Xe_Dap
         public Form1()
         {
             InitializeComponent();
+            
         }
     }
 }
