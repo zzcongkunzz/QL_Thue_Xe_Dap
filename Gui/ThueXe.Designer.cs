@@ -33,9 +33,11 @@ namespace QL_Thue_Xe_Dap
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnXoaDV = new System.Windows.Forms.Button();
-            this.btnThemDV = new System.Windows.Forms.Button();
-            this.dvgDSXe = new System.Windows.Forms.DataGridView();
+            this.txtSoGioThue = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnXoaXe = new System.Windows.Forms.Button();
+            this.btnThemXe = new System.Windows.Forms.Button();
+            this.dgvDSXe = new System.Windows.Forms.DataGridView();
             this.txtGiaThue = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTienDatCoc = new System.Windows.Forms.TextBox();
@@ -60,16 +62,18 @@ namespace QL_Thue_Xe_Dap
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgDSXe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSXe)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnXoaDV);
-            this.groupBox2.Controls.Add(this.btnThemDV);
-            this.groupBox2.Controls.Add(this.dvgDSXe);
+            this.groupBox2.Controls.Add(this.txtSoGioThue);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.btnXoaXe);
+            this.groupBox2.Controls.Add(this.btnThemXe);
+            this.groupBox2.Controls.Add(this.dgvDSXe);
             this.groupBox2.Controls.Add(this.txtGiaThue);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtTienDatCoc);
@@ -81,46 +85,71 @@ namespace QL_Thue_Xe_Dap
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(6, 190);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1214, 497);
+            this.groupBox2.Size = new System.Drawing.Size(1214, 575);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin xe thuê";
             // 
-            // btnXoaDV
+            // txtSoGioThue
             // 
-            this.btnXoaDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaDV.Location = new System.Drawing.Point(1016, 221);
-            this.btnXoaDV.Name = "btnXoaDV";
-            this.btnXoaDV.Size = new System.Drawing.Size(163, 50);
-            this.btnXoaDV.TabIndex = 25;
-            this.btnXoaDV.Text = "Xóa";
-            this.btnXoaDV.UseVisualStyleBackColor = true;
+            this.txtSoGioThue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoGioThue.Location = new System.Drawing.Point(162, 135);
+            this.txtSoGioThue.Name = "txtSoGioThue";
+            this.txtSoGioThue.Size = new System.Drawing.Size(260, 26);
+            this.txtSoGioThue.TabIndex = 28;
+            this.txtSoGioThue.Text = "1\r\n";
+            this.txtSoGioThue.TextChanged += new System.EventHandler(this.textSoGioThue_TextChanged);
+            this.txtSoGioThue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textSoGioThue_KeyPress);
             // 
-            // btnThemDV
+            // label8
             // 
-            this.btnThemDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemDV.Location = new System.Drawing.Point(1016, 139);
-            this.btnThemDV.Name = "btnThemDV";
-            this.btnThemDV.Size = new System.Drawing.Size(163, 52);
-            this.btnThemDV.TabIndex = 24;
-            this.btnThemDV.Text = "Thêm";
-            this.btnThemDV.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(23, 142);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 20);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Số giờ thuê\r\n";
             // 
-            // dvgDSXe
+            // btnXoaXe
             // 
-            this.dvgDSXe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgDSXe.Location = new System.Drawing.Point(23, 139);
-            this.dvgDSXe.Name = "dvgDSXe";
-            this.dvgDSXe.RowTemplate.Height = 24;
-            this.dvgDSXe.Size = new System.Drawing.Size(957, 349);
-            this.dvgDSXe.TabIndex = 23;
+            this.btnXoaXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaXe.Location = new System.Drawing.Point(1016, 292);
+            this.btnXoaXe.Name = "btnXoaXe";
+            this.btnXoaXe.Size = new System.Drawing.Size(163, 50);
+            this.btnXoaXe.TabIndex = 25;
+            this.btnXoaXe.Text = "Xóa";
+            this.btnXoaXe.UseVisualStyleBackColor = true;
+            this.btnXoaXe.Click += new System.EventHandler(this.btnXoaXe_Click);
+            // 
+            // btnThemXe
+            // 
+            this.btnThemXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemXe.Location = new System.Drawing.Point(1016, 210);
+            this.btnThemXe.Name = "btnThemXe";
+            this.btnThemXe.Size = new System.Drawing.Size(163, 52);
+            this.btnThemXe.TabIndex = 24;
+            this.btnThemXe.Text = "Thêm";
+            this.btnThemXe.UseVisualStyleBackColor = true;
+            this.btnThemXe.Click += new System.EventHandler(this.btnThemXe_Click);
+            // 
+            // dgvDSXe
+            // 
+            this.dgvDSXe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSXe.Location = new System.Drawing.Point(23, 210);
+            this.dgvDSXe.Name = "dgvDSXe";
+            this.dgvDSXe.RowTemplate.Height = 24;
+            this.dgvDSXe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDSXe.Size = new System.Drawing.Size(957, 349);
+            this.dgvDSXe.TabIndex = 23;
             // 
             // txtGiaThue
             // 
             this.txtGiaThue.Enabled = false;
+            this.txtGiaThue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGiaThue.Location = new System.Drawing.Point(720, 88);
             this.txtGiaThue.Name = "txtGiaThue";
-            this.txtGiaThue.Size = new System.Drawing.Size(260, 30);
+            this.txtGiaThue.Size = new System.Drawing.Size(260, 26);
             this.txtGiaThue.TabIndex = 21;
             // 
             // label4
@@ -136,9 +165,10 @@ namespace QL_Thue_Xe_Dap
             // txtTienDatCoc
             // 
             this.txtTienDatCoc.Enabled = false;
+            this.txtTienDatCoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTienDatCoc.Location = new System.Drawing.Point(720, 48);
             this.txtTienDatCoc.Name = "txtTienDatCoc";
-            this.txtTienDatCoc.Size = new System.Drawing.Size(260, 30);
+            this.txtTienDatCoc.Size = new System.Drawing.Size(260, 26);
             this.txtTienDatCoc.TabIndex = 19;
             // 
             // label5
@@ -173,29 +203,34 @@ namespace QL_Thue_Xe_Dap
             // 
             // cmbLoaiXe
             // 
+            this.cmbLoaiXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbLoaiXe.FormattingEnabled = true;
             this.cmbLoaiXe.Location = new System.Drawing.Point(162, 45);
             this.cmbLoaiXe.Name = "cmbLoaiXe";
-            this.cmbLoaiXe.Size = new System.Drawing.Size(260, 33);
+            this.cmbLoaiXe.Size = new System.Drawing.Size(260, 28);
             this.cmbLoaiXe.TabIndex = 9;
+            this.cmbLoaiXe.SelectedValueChanged += new System.EventHandler(this.cmbLoaiXe_SelectedValueChanged);
             // 
             // cmbTenXe
             // 
+            this.cmbTenXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTenXe.FormattingEnabled = true;
             this.cmbTenXe.Location = new System.Drawing.Point(162, 85);
             this.cmbTenXe.Name = "cmbTenXe";
-            this.cmbTenXe.Size = new System.Drawing.Size(260, 33);
+            this.cmbTenXe.Size = new System.Drawing.Size(260, 28);
             this.cmbTenXe.TabIndex = 10;
+            this.cmbTenXe.SelectedValueChanged += new System.EventHandler(this.cmbTenXe_SelectedValueChanged);
             // 
             // btnTaoDonThueXe
             // 
             this.btnTaoDonThueXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTaoDonThueXe.Location = new System.Drawing.Point(911, 693);
+            this.btnTaoDonThueXe.Location = new System.Drawing.Point(911, 771);
             this.btnTaoDonThueXe.Name = "btnTaoDonThueXe";
             this.btnTaoDonThueXe.Size = new System.Drawing.Size(274, 50);
             this.btnTaoDonThueXe.TabIndex = 26;
             this.btnTaoDonThueXe.Text = "Tạo Đơn Thuê Xe\r\n";
             this.btnTaoDonThueXe.UseVisualStyleBackColor = true;
+            this.btnTaoDonThueXe.Click += new System.EventHandler(this.btnTaoDonThueXe_Click);
             // 
             // groupBox1
             // 
@@ -309,7 +344,7 @@ namespace QL_Thue_Xe_Dap
             // txtTongTien
             // 
             this.txtTongTien.Enabled = false;
-            this.txtTongTien.Location = new System.Drawing.Point(159, 708);
+            this.txtTongTien.Location = new System.Drawing.Point(159, 786);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(599, 22);
             this.txtTongTien.TabIndex = 27;
@@ -318,7 +353,7 @@ namespace QL_Thue_Xe_Dap
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(29, 708);
+            this.label6.Location = new System.Drawing.Point(29, 786);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 20);
             this.label6.TabIndex = 28;
@@ -336,15 +371,19 @@ namespace QL_Thue_Xe_Dap
             this.Controls.Add(this.groupBox1);
             this.Name = "ThueXe";
             this.Text = "ThueXe";
+            this.Load += new System.EventHandler(this.ThueXe_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgDSXe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSXe)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.TextBox txtSoGioThue;
+        private System.Windows.Forms.Label label8;
 
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Label label6;
@@ -353,9 +392,9 @@ namespace QL_Thue_Xe_Dap
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnTaoDonThueXe;
-        private System.Windows.Forms.Button btnXoaDV;
-        private System.Windows.Forms.Button btnThemDV;
-        private System.Windows.Forms.DataGridView dvgDSXe;
+        private System.Windows.Forms.Button btnXoaXe;
+        private System.Windows.Forms.Button btnThemXe;
+        private System.Windows.Forms.DataGridView dgvDSXe;
         private System.Windows.Forms.TextBox txtGiaThue;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTienDatCoc;

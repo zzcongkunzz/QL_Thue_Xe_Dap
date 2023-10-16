@@ -16,50 +16,56 @@ namespace QL_Thue_Xe_Dap
         }
 
         private NhanVienService nhanVienService = new NhanVienService();
-        
+
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string taiKhoan = txtTaiKhoan.Text;
             string matKhau = txtMatKhau.Text;
-            
+
+            bool checkError = false;
+
             if (taiKhoan.Equals(""))
             {
                 this.error.SetError(this.txtTaiKhoan, "Không được để trống");
+                checkError = true;
             }
 
             if (matKhau.Equals(""))
             {
                 this.error.SetError(this.txtMatKhau, "Không được để trống");
+                checkError = true;
             }
 
-            if (this.nhanVienService.DangNhap(taiKhoan, matKhau))
+            if (checkError == false)
             {
-                MessageBox.Show($"Bạn đã đăng nhập thành công với quyền: {Properties.Settings.Default.Quyen}");
-                
-                if (Properties.Settings.Default.Quyen == "Admin")
+                if (this.nhanVienService.DangNhap(taiKhoan, matKhau))
                 {
-                    TrangChuAdmin trangChuAdmin = new TrangChuAdmin();
-                    trangChuAdmin.Show();
-                    this.Hide();
+                    MessageBox.Show($"Bạn đã đăng nhập thành công với quyền: {Properties.Settings.Default.Quyen}");
+
+                    if (Properties.Settings.Default.Quyen == "Admin")
+                    {
+                        TrangChuAdmin trangChuAdmin = new TrangChuAdmin();
+                        trangChuAdmin.Show();
+                        this.Hide();
+                    }
+                    else if (Properties.Settings.Default.Quyen == "NhanVien")
+                    {
+                        TrangChuNV trangChuNv = new TrangChuNV();
+                        trangChuNv.Show();
+                        this.Hide();
+                    }
+                    else if (Properties.Settings.Default.Quyen == "QuanLyXe")
+                    {
+                        TrangChuQLXe trangChuQlXe = new TrangChuQLXe();
+                        trangChuQlXe.Show();
+                        this.Hide();
+                    }
                 }
-                else if (Properties.Settings.Default.Quyen == "NhanVien")
+                else
                 {
-                    TrangChuNV trangChuNv = new TrangChuNV();
-                    trangChuNv.Show();
-                    this.Hide();
-                }
-                else if (Properties.Settings.Default.Quyen == "QuanLyXe")
-                {
-                    TrangChuQLXe trangChuQlXe = new TrangChuQLXe();
-                    trangChuQlXe.Show();
-                    this.Hide();
+                    MessageBox.Show("Tài khoản hoặc mật khẩu không đúng");
                 }
             }
-            else
-            {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không đúng");
-            }
-            
         }
 
         private void cbhienmk_CheckedChanged(object sender, EventArgs e)
@@ -73,7 +79,5 @@ namespace QL_Thue_Xe_Dap
                 this.txtMatKhau.UseSystemPasswordChar = true;
             }
         }
-        
-        
     }
 }

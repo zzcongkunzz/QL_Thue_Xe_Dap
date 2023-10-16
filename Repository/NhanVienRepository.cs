@@ -5,46 +5,26 @@ using System.Data.SqlClient;
 
 namespace QL_Thue_Xe_Dap.Repository
 {
-    public class NhanVienRepository
+    public class NhanVienRepository : Repository
     {
-        private SqlConnection connection;
         
-        public NhanVienRepository()
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionStrings"].ConnectionString;
-            connection = new SqlConnection(connectionString);
-        }
+        public NhanVienRepository() : base()
+        { }
         
-        public void OpenConnection()
-        {
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-            }
-        }
-
-        // Phương thức đóng kết nối
-        public void CloseConnection()
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
-        }
 
         public DataTable KiemTraDangNhap(string taiKhoan, string matKhau)
         {
             DataTable dataTable = new DataTable();
-            connection.Open();
+            base.OpenConnection();
             String query = $"SELECT * FROM tbl_NhanVien " +
                            $"INNER JOIN dbo.tbl_NhomNguoiDung tNND on tNND.idNhomNguoiDung = tbl_NhanVien.idNhomNguoiDung " +
                            $"WHERE taiKhoan = '{taiKhoan}' AND matKhau = '{matKhau}'";
-            using (SqlCommand command = new SqlCommand(query, connection))
+            using (SqlCommand command = new SqlCommand(query, base.Connection))
             {
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 adapter.Fill(dataTable);
             }
-            connection.Close();
+            base.CloseConnection();
             return dataTable;
         }
 

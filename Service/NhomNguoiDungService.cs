@@ -6,11 +6,11 @@ namespace QL_Thue_Xe_Dap.Servive
 {
     public class NhomNguoiDungService
     {
-        private NhomNguoiDungRepository NhomNguoiDungRepository;
+        private NhomNguoiDungRepository nhomNguoiDungRepository;
 
         public NhomNguoiDungService()
         {
-            this.NhomNguoiDungRepository = new NhomNguoiDungRepository();
+            this.nhomNguoiDungRepository = new NhomNguoiDungRepository();
         }
 
         

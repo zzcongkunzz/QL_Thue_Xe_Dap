@@ -63,6 +63,8 @@ namespace QL_Thue_Xe_Dap.Servive
                 sb.Append(b.ToString("x2"));
             }
 
+            Console.WriteLine(sb.ToString());
+            
             return sb.ToString();
         }
     }

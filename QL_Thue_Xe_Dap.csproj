@@ -79,13 +79,24 @@
         <Compile Include="Gui\TrangChuQLXe.Designer.cs">
           <DependentUpon>TrangChuQLXe.cs</DependentUpon>
         </Compile>
+        <Compile Include="Model\HoaDon.cs" />
+        <Compile Include="Model\KhachHang.cs" />
         <Compile Include="Model\NhanVien.cs" />
+        <Compile Include="Model\PhieuDatCoc.cs" />
+        <Compile Include="Model\Xe.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Repository\HoaDonRepository.cs" />
+        <Compile Include="Repository\KhachHangRepository.cs" />
         <Compile Include="Repository\NhanVienRepository.cs" />
         <Compile Include="Repository\NhomNguoiDungRepository.cs" />
+        <Compile Include="Repository\PhieuDatCocRepository.cs" />
+        <Compile Include="Repository\Repository.cs" />
+        <Compile Include="Repository\XeRepository.cs" />
         <Compile Include="Service\NhanVienService.cs" />
         <Compile Include="Service\NhomNguoiDungService.cs" />
+        <Compile Include="Service\TaoDonThueXeService.cs" />
+        <Compile Include="Service\XeService.cs" />
         <EmbeddedResource Include="Gui\DangNhap.resx">
           <DependentUpon>DangNhap.cs</DependentUpon>
         </EmbeddedResource>
