@@ -4,6 +4,7 @@ namespace QL_Thue_Xe_Dap.Model
 {
     public class HoaDon
     {
+        // mã hóa đơn
         private string maHD;
         private string maKH;
         private string maNV;
