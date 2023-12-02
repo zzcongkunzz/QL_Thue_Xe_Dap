@@ -40,7 +40,7 @@ namespace QL_Thue_Xe_Dap
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.lbDoiMatKhau = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,26 +133,24 @@ namespace QL_Thue_Xe_Dap
             // 
             this.error.ContainerControl = this;
             // 
-            // button1
+            // lbDoiMatKhau
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button1.BackColor = System.Drawing.SystemColors.Info;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(177, 350);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 39);
-            this.button1.TabIndex = 57;
-            this.button1.Text = "Đổi Mật Khẩu";
-            this.button1.UseVisualStyleBackColor = false;
+            this.lbDoiMatKhau.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbDoiMatKhau.AutoSize = true;
+            this.lbDoiMatKhau.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbDoiMatKhau.Location = new System.Drawing.Point(272, 225);
+            this.lbDoiMatKhau.Name = "lbDoiMatKhau";
+            this.lbDoiMatKhau.Size = new System.Drawing.Size(93, 17);
+            this.lbDoiMatKhau.TabIndex = 58;
+            this.lbDoiMatKhau.Text = "Đổi Mật Khẩu";
+            this.lbDoiMatKhau.Click += new System.EventHandler(this.lbDoiMatKhau_Click);
             // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lbDoiMatKhau);
             this.Controls.Add(this.cbhienmk);
             this.Controls.Add(this.txtTaiKhoan);
             this.Controls.Add(this.txtMatKhau);
@@ -181,6 +179,6 @@ namespace QL_Thue_Xe_Dap
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lbDoiMatKhau;
     }
 }

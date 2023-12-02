@@ -79,5 +79,10 @@ namespace QL_Thue_Xe_Dap
                 this.txtMatKhau.UseSystemPasswordChar = true;
             }
         }
+
+        private void lbDoiMatKhau_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
