@@ -40,6 +40,7 @@ namespace QL_Thue_Xe_Dap
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,11 +133,26 @@ namespace QL_Thue_Xe_Dap
             // 
             this.error.ContainerControl = this;
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.BackColor = System.Drawing.SystemColors.Info;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(177, 350);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(147, 39);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "Đổi Mật Khẩu";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cbhienmk);
             this.Controls.Add(this.txtTaiKhoan);
             this.Controls.Add(this.txtMatKhau);
@@ -150,6 +166,7 @@ namespace QL_Thue_Xe_Dap
             ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.ErrorProvider error;
@@ -163,5 +180,7 @@ namespace QL_Thue_Xe_Dap
         private System.Windows.Forms.Label label2;
 
         #endregion
+
+        private System.Windows.Forms.Button button1;
     }
 }
