@@ -1,4 +1,6 @@
-﻿namespace QL_Thue_Xe_Dap.Model
+﻿using System;
+
+namespace QL_Thue_Xe_Dap.Model
 {
     public class KhachHang
     {
@@ -8,9 +10,23 @@
         private string email;
         private string sdt;
         private string diaChi;
+        private string gioiTinh;
+        private DateTime ngaySinh;
 
         public KhachHang()
         {
+        }
+
+        public KhachHang(string maKH, string tenKH, string cccd, string email, string sdt, string diaChi, string gioiTinh, DateTime ngaySinh)
+        {
+            this.maKH = maKH;
+            this.tenKH = tenKH;
+            Cccd = cccd;
+            Email = email;
+            Sdt = sdt;
+            DiaChi = diaChi;
+            GioiTinh = gioiTinh;
+            NgaySinh = ngaySinh;
         }
 
         public string MaKh
@@ -47,6 +63,16 @@
         {
             get => diaChi;
             set => diaChi = value;
+        }
+        public string GioiTinh
+        {
+            get => gioiTinh;
+            set => gioiTinh = value;
+        }
+        public DateTime NgaySinh
+        {
+            get => ngaySinh;
+            set => ngaySinh = value;
         }
     }
 }

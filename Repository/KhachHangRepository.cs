@@ -1,6 +1,6 @@
 ﻿using QL_Thue_Xe_Dap.Model;
 using System;
-
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 namespace QL_Thue_Xe_Dap.Repository
@@ -12,19 +12,26 @@ namespace QL_Thue_Xe_Dap.Repository
 
         public KhachHang ThemKhachHang(KhachHang khachHang)
         {
-            DataTable dataTable = new DataTable();
-           
             Guid randomGuid = Guid.NewGuid();
             khachHang.MaKh = randomGuid.ToString();
-            
-            String query = $"Insert Into tbl_KhachHang(maKH, tenKH, cccd, email, sdt, diaChi)" +
-                           $"values ('{khachHang.MaKh}', N'{khachHang.TenKh}', '{khachHang.Cccd}', '{khachHang.Email}', '{khachHang.Sdt}', N'{khachHang.DiaChi}')";
+
+
+            string proc = "Proc_Ins_KhachHang";
 
             int soBanGhiThayDoi = 0;
             base.OpenConnection();
-            using (SqlCommand command = new SqlCommand(query, base.Connection))
+            using (SqlCommand command = new SqlCommand(proc, base.Connection))
             {
-                
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@ma", khachHang.MaKh);
+                command.Parameters.AddWithValue("@ten", khachHang.TenKh);
+                command.Parameters.AddWithValue("@cccd", khachHang.Cccd);
+                command.Parameters.AddWithValue("@email", khachHang.Email);
+                command.Parameters.AddWithValue("@sdt", khachHang.Sdt);
+                command.Parameters.AddWithValue("@gioitinh", khachHang.GioiTinh);
+                command.Parameters.AddWithValue("@ngaysinh", khachHang.NgaySinh);
+                command.Parameters.AddWithValue("@diachi", khachHang.DiaChi);
+
                 soBanGhiThayDoi = command.ExecuteNonQuery();
             }
             base.CloseConnection();
@@ -41,24 +48,24 @@ namespace QL_Thue_Xe_Dap.Repository
         
         public KhachHang CapNhatKhachHang(KhachHang khachHang)
         {
-            DataTable dataTable = new DataTable();
-            
-            String query = $"UPDATE tbl_KhachHang " +
-                           $"SET tenKH = N'{khachHang.TenKh}', " +
-                           $"cccd = '{khachHang.Cccd}', " +
-                           $"email = '{khachHang.Email}', " +
-                           $"sdt = '{khachHang.Sdt}', " +
-                           $"diaChi = N'{khachHang.DiaChi}' " +
-                           $"WHERE maKH = '{khachHang.MaKh}'";
+            string proc = "Proc_Update_KhachHang";
 
             int soBanGhiThayDoi = 0;
             
-            using (SqlCommand command = new SqlCommand(query, base.Connection))
+            using (SqlCommand command = new SqlCommand(proc, base.Connection))
             {
                 base.OpenConnection();
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@ma", khachHang.MaKh);
+                command.Parameters.AddWithValue("@ten", khachHang.TenKh);
+                command.Parameters.AddWithValue("@cccd", khachHang.Cccd);
+                command.Parameters.AddWithValue("@email", khachHang.Email);
+                command.Parameters.AddWithValue("@sdt", khachHang.Sdt);
+                command.Parameters.AddWithValue("@gioitinh", khachHang.GioiTinh);
+                command.Parameters.AddWithValue("@ngaysinh", khachHang.NgaySinh);
+                command.Parameters.AddWithValue("@diachi", khachHang.DiaChi);
                 soBanGhiThayDoi = command.ExecuteNonQuery();
                 base.CloseConnection();
-
             }
             
             if (soBanGhiThayDoi > 0)
@@ -103,6 +110,41 @@ namespace QL_Thue_Xe_Dap.Repository
             {
                 return null;
             }
+        }
+
+        public bool CheckExist(string maKH)
+        {
+            string proc = "Proc_GetDataByMa_KhachHang";
+            string result = null;
+
+            using (SqlCommand command = new SqlCommand(proc, base.Connection))
+            {
+                base.OpenConnection();
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@ma", maKH);
+                result = (string)command.ExecuteScalar();
+                base.CloseConnection();
+            }
+
+            return result != null;
+        }
+        public DataTable GetKhachHangs()
+        {
+            string proc = "Proc_GetData_KhachHang";
+
+            DataTable data = new DataTable();
+
+            using (SqlCommand command = new SqlCommand(proc, base.Connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                
+                using(SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    adapter.Fill(data);
+                }
+            }
+
+            return data;
         }
     }
 }

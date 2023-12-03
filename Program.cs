@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QL_Thue_Xe_Dap.Gui;
 
 
 namespace QL_Thue_Xe_Dap
@@ -17,7 +18,7 @@ namespace QL_Thue_Xe_Dap
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DangNhap());
+            Application.Run(new KhachHang());
         }
     }
 }

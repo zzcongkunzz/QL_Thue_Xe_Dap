@@ -15,6 +15,7 @@ namespace QL_Thue_Xe_Dap.Model
         {
             khachHangRepository = new KhachHangRepository();
 
+
             hoaDonRepository = new HoaDonRepository();
 
             phieuDatCocRepository = new PhieuDatCocRepository();

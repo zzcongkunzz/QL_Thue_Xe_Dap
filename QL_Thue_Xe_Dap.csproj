@@ -56,6 +56,12 @@
     <Compile Include="Gui\DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\KhachHang.Designer.cs">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\ThueXe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,12 +100,16 @@
     <Compile Include="Repository\PhieuDatCocRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\XeRepository.cs" />
+    <Compile Include="Service\KhachHangService.cs" />
     <Compile Include="Service\NhanVienService.cs" />
     <Compile Include="Service\NhomNguoiDungService.cs" />
     <Compile Include="Service\TaoDonThueXeService.cs" />
     <Compile Include="Service\XeService.cs" />
     <EmbeddedResource Include="Gui\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\KhachHang.resx">
+      <DependentUpon>KhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\ThueXe.resx">
       <DependentUpon>ThueXe.cs</DependentUpon>
@@ -115,6 +125,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
