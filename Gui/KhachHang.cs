@@ -25,6 +25,18 @@ namespace QL_Thue_Xe_Dap.Gui
             dgvKH.DataSource = khService.GetDataKhachHang();
         }
 
+        private bool ValidateData()
+        {
+            string tenKH = txtTenKH.Text;
+            string cccd = txtSoCCCDKH.Text;
+            string sdt = txtSoDienThoaiKH.Text;
+            string email = txtEmailKH.Text;
+            string diaChi = txtDiaChi.Text;
+            if (string.IsNullOrEmpty(tenKH) || string.IsNullOrEmpty(cccd) || string.IsNullOrEmpty(sdt) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(diaChi))
+                return false;
+            return true;
+        }
+
         private void btnLuu_Click(object sender, EventArgs e)
         {
             string tenKH = txtTenKH.Text;
@@ -38,17 +50,23 @@ namespace QL_Thue_Xe_Dap.Gui
             else
                 gioiTinh = rdbNu.Text;
             DateTime ngaySinh = dtpNgaySinh.Value;
-
-            Model.KhachHang khachHang = new Model.KhachHang("", tenKH, cccd, email, sdt, diaChi, gioiTinh, ngaySinh);
-            if(khService.LuuKhachHang(khachHang))
-            {
-                MessageBox.Show("Lưu thông tin khách hàng thành công");
-                LoadTableKH();
+            if(ValidateData())
+            { 
+                Model.KhachHang khachHang = new Model.KhachHang("", tenKH, cccd, email, sdt, diaChi, gioiTinh, ngaySinh);
+                if(khService.LuuKhachHang(khachHang))
+                {
+                    MessageBox.Show("Lưu thông tin khách hàng thành công");
+                    LoadTableKH();
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi! vui lòng liên hệ với trung tâm tư vấn");
+                }
             }
             else
             {
-                MessageBox.Show("Lỗi! vui lòng liên hệ với trung tâm tư vấn");
-            }
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+            }    
         }
 
         private void KhachHang_Load(object sender, EventArgs e)
