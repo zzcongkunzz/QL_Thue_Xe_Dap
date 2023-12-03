@@ -27,6 +27,21 @@ namespace QL_Thue_Xe_Dap.Repository
             base.CloseConnection();
             return dataTable;
         }
+/*        public DataTable DoiMatKhau(string taiKhoan, string matKhau)
+        {
+            DataTable dataTable = new DataTable();
+            base.OpenConnection();
+            string query = $"SELECT count(*) from tbl_NhanVien" +
+                $"INNER JOIN dbo.tbl_NhomNguoiDung tNND on tNND.idNhomNguoiDung = tbl_NhanVien.idNhomNguoiDung "+
+                $"where taiKhoan = '{taiKhoan}' AND matKhau = '{matKhau}'";
+            using (SqlCommand command = new SqlCommand(query, base.Connection))
+            {
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, base.Connection);
+                dataAdapter.Fill(dataTable);
+            }
+            base.CloseConnection();
+            return dataTable;
+        }*/
 
     }
 }

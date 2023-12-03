@@ -2,6 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using QL_Thue_Xe_Dap.Gui;
 using QL_Thue_Xe_Dap.Model;
 using QL_Thue_Xe_Dap.Repository;
 using QL_Thue_Xe_Dap.Servive;
@@ -82,7 +83,9 @@ namespace QL_Thue_Xe_Dap
 
         private void lbDoiMatKhau_Click(object sender, EventArgs e)
         {
-
+            DoiMatKhau doiMatKhau = new DoiMatKhau();
+            doiMatKhau.Show();
+            this.Hide();
         }
     }
 }

@@ -43,6 +43,15 @@ namespace QL_Thue_Xe_Dap.Servive
                 return false;
             }
         }
+/*        public bool ChangePass(string taiKhoan, string matKhau)
+        {
+            DataTable dataTable = nhanVienRepository.DoiMatKhau(taiKhoan, encryptionSHA(matKhau));
+
+            if (dataTable.Rows.Count > 0)
+            {
+
+            } 
+        }*/
 
         public void DangXuat()
         {
@@ -67,5 +76,6 @@ namespace QL_Thue_Xe_Dap.Servive
             
             return sb.ToString();
         }
+
     }
 }
