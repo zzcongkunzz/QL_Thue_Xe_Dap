@@ -36,7 +36,7 @@ namespace QL_Thue_Xe_Dap.Gui
             this.btnDoiMatKhau = new System.Windows.Forms.Button();
             this.txtTaiKhoan = new System.Windows.Forms.TextBox();
             this.txtMatKhauCu = new System.Windows.Forms.TextBox();
-            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnBackToDangNhap = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -120,20 +120,21 @@ namespace QL_Thue_Xe_Dap.Gui
             this.txtMatKhauCu.TabIndex = 71;
             this.txtMatKhauCu.UseSystemPasswordChar = true;
             // 
-            // btnThoat
+            // btnBackToDangNhap
             // 
-            this.btnThoat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnThoat.BackColor = System.Drawing.Color.Red;
-            this.btnThoat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnThoat.ForeColor = System.Drawing.Color.White;
-            this.btnThoat.Location = new System.Drawing.Point(126, 329);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(115, 39);
-            this.btnThoat.TabIndex = 72;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnBackToDangNhap.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnBackToDangNhap.BackColor = System.Drawing.Color.Red;
+            this.btnBackToDangNhap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackToDangNhap.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnBackToDangNhap.ForeColor = System.Drawing.Color.White;
+            this.btnBackToDangNhap.Location = new System.Drawing.Point(126, 329);
+            this.btnBackToDangNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBackToDangNhap.Name = "btnBackToDangNhap";
+            this.btnBackToDangNhap.Size = new System.Drawing.Size(115, 39);
+            this.btnBackToDangNhap.TabIndex = 72;
+            this.btnBackToDangNhap.Text = "Đăng Nhập";
+            this.btnBackToDangNhap.UseVisualStyleBackColor = false;
+            this.btnBackToDangNhap.Click += new System.EventHandler(this.btnBackToDangNhap_Click);
             // 
             // label1
             // 
@@ -167,7 +168,7 @@ namespace QL_Thue_Xe_Dap.Gui
             this.Controls.Add(this.btnDoiMatKhau);
             this.Controls.Add(this.txtTaiKhoan);
             this.Controls.Add(this.txtMatKhauCu);
-            this.Controls.Add(this.btnThoat);
+            this.Controls.Add(this.btnBackToDangNhap);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "DoiMatKhau";
@@ -186,7 +187,7 @@ namespace QL_Thue_Xe_Dap.Gui
         private System.Windows.Forms.Button btnDoiMatKhau;
         private System.Windows.Forms.TextBox txtTaiKhoan;
         private System.Windows.Forms.TextBox txtMatKhauCu;
-        private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Button btnBackToDangNhap;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
