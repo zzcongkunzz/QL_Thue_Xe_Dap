@@ -59,7 +59,7 @@ namespace QL_Thue_Xe_Dap.Servive
             Properties.Settings.Default.Save();
         }
         
-        private string encryptionSHA(string pass)
+        public string encryptionSHA(string pass)
         {
             byte[] inputBytes = Encoding.UTF8.GetBytes(pass);
 

@@ -9,23 +9,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Windows.Forms;
+using QL_Thue_Xe_Dap.Servive;
 
 namespace QL_Thue_Xe_Dap.Gui
 {
     public partial class DoiMatKhau : Form
     {
-/*        string taiKhoanCu = "tuan";
-        string matKhauCu = "123";*/
+        /*        string taiKhoanCu = "tuan";
+                string matKhauCu = "123";*/
+        private NhanVienService nhanVienService;
         public DoiMatKhau()
         {
             InitializeComponent();
+            this.nhanVienService = new NhanVienService();
         }
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
 
             string taiKhoan = txtTaiKhoan.Text;
             string matKhauCu = txtMatKhauCu.Text;
-            string matKhauMoi = txtMatKhauMoi.Text;
+            string matKhauMoi = nhanVienService.encryptionSHA(txtMatKhauMoi.Text);
             string nhapLaiMatKhau = txtNhapLaiMatKhau.Text;
 /*            if (taiKhoan != taiKhoanCu)
             {
