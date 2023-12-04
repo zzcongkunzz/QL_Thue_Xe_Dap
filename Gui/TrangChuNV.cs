@@ -53,5 +53,11 @@ namespace QL_Thue_Xe_Dap
                 this.Hide();
             }
         }
+
+        private void thuêXeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThueXe thueXe = new ThueXe();
+            TaoMdiParent(thueXe);
+        }
     }
 }

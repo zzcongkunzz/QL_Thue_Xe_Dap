@@ -45,7 +45,7 @@ namespace QL_Thue_Xe_Dap
 
         private void textSoGioThue_TextChanged(object sender, EventArgs e)
         {
-            if (txtSoGioThue.Text == "" || (int.Parse(txtSoGioThue.Text) < 1))
+            if (txtSoGioThue.Text.Equals("") || (long.Parse(txtSoGioThue.Text) < 1))
             {
                     txtSoGioThue.Text = "1";
             }

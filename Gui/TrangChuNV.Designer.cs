@@ -54,6 +54,7 @@ namespace QL_Thue_Xe_Dap
             this.thuêXeToolStripMenuItem.Name = "thuêXeToolStripMenuItem";
             this.thuêXeToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.thuêXeToolStripMenuItem.Text = "Thuê Xe";
+            this.thuêXeToolStripMenuItem.Click += new System.EventHandler(this.thuêXeToolStripMenuItem_Click);
             // 
             // khachsToolStripMenuItem
             // 

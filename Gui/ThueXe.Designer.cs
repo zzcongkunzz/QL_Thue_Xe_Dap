@@ -95,9 +95,10 @@ namespace QL_Thue_Xe_Dap
             this.txtSoGioThue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoGioThue.Location = new System.Drawing.Point(162, 135);
             this.txtSoGioThue.Name = "txtSoGioThue";
+            this.txtSoGioThue.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtSoGioThue.Size = new System.Drawing.Size(260, 26);
             this.txtSoGioThue.TabIndex = 28;
-            this.txtSoGioThue.Text = "1\r\n";
+            this.txtSoGioThue.Text = "1";
             this.txtSoGioThue.TextChanged += new System.EventHandler(this.textSoGioThue_TextChanged);
             this.txtSoGioThue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textSoGioThue_KeyPress);
             // 
