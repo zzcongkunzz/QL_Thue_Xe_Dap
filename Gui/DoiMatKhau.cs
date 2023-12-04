@@ -28,9 +28,36 @@ namespace QL_Thue_Xe_Dap.Gui
             string matKhauMoi = nhanVienService.encryptionSHA(txtMatKhauMoi.Text);
             string nhapLaiMatKhau = nhanVienService.encryptionSHA(txtNhapLaiMatKhau.Text);
 
-            if (!matKhauMoi.Equals(nhapLaiMatKhau))
+
+            try
+            {
+                nhanVienService.DoiMatKhau(taiKhoan, matKhauCu, matKhauMoi, nhapLaiMatKhau);
+                MessageBox.Show("Đổi mật khẩu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đổi mật khẩu không thành công. Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
+
+
+            /*if (!matKhauMoi.Equals(nhapLaiMatKhau))
             {
                 MessageBox.Show("Mật khẩu không trùng khớp.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (taiKhoan.Equals(""))
+            {
+                MessageBox.Show("Tài khoản không được để trống .", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (matKhauCu.Equals(""))
+            {
+                MessageBox.Show("Mật khẩu không được để trống .", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -47,7 +74,7 @@ namespace QL_Thue_Xe_Dap.Gui
 
                     String query2 = $"UPDATE tbl_NhanVien " +
                                     $"SET matKhau = '{matKhauMoi}' " +
-                                   /*                               $" INNER JOIN dbo.tbl_NhomNguoiDung tNND on tNND.idNhomNguoiDung = tbl_NhanVien.idNhomNguoiDung " +*/
+                                   *//*                               $" INNER JOIN dbo.tbl_NhomNguoiDung tNND on tNND.idNhomNguoiDung = tbl_NhanVien.idNhomNguoiDung " +*//*
                                    $"WHERE taiKhoan = '{taiKhoan}'";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -78,7 +105,7 @@ namespace QL_Thue_Xe_Dap.Gui
                         }
                     }
                 }
-            }
+            }*/
         }
 
         private void btnBackToDangNhap_Click(object sender, EventArgs e)

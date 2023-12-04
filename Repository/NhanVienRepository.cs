@@ -27,21 +27,48 @@ namespace QL_Thue_Xe_Dap.Repository
             base.CloseConnection();
             return dataTable;
         }
-/*        public DataTable DoiMatKhau(string taiKhoan, string matKhau)
+
+        public void MatKhau(string taiKhoan, string matKhauCu, string matKhauMoi)
         {
-            DataTable dataTable = new DataTable();
-            base.OpenConnection();
-            string query = $"SELECT count(*) from tbl_NhanVien" +
-                $"INNER JOIN dbo.tbl_NhomNguoiDung tNND on tNND.idNhomNguoiDung = tbl_NhanVien.idNhomNguoiDung "+
-                $"where taiKhoan = '{taiKhoan}' AND matKhau = '{matKhau}'";
-            using (SqlCommand command = new SqlCommand(query, base.Connection))
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionStrings"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, base.Connection);
-                dataAdapter.Fill(dataTable);
+                connection.Open();
+                String query = $"SELECT count(*) FROM tbl_NhanVien " +
+/*                          $" INNER JOIN dbo.tbl_NhomNguoiDung tNND on tNND.idNhomNguoiDung = tbl_NhanVien.idNhomNguoiDung " +*/
+                          $"WHERE taiKhoan = '{taiKhoan}'";
+
+                String query2 = $"UPDATE tbl_NhanVien " +
+                                $"SET matKhau = '{matKhauMoi}' " +
+                               /*                               $" INNER JOIN dbo.tbl_NhomNguoiDung tNND on tNND.idNhomNguoiDung = tbl_NhanVien.idNhomNguoiDung " +*/
+                               $"WHERE taiKhoan = '{taiKhoan}'";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("taiKhoan", taiKhoan);
+                    command.Parameters.AddWithValue("matKhau", matKhauCu);
+
+                    int userCount = (int)command.ExecuteScalar();
+                    if (userCount == 0)
+                    {
+                        throw new Exception("Mật khẩu cũ không đúng.");
+                    }
+                }
+
+                using (SqlCommand command2 = new SqlCommand(query2, connection))
+                {
+                    command2.Parameters.AddWithValue("taiKhoan", taiKhoan);
+                    command2.Parameters.AddWithValue("matKhau", matKhauMoi);
+
+                    var rowsAffected = command2.ExecuteNonQuery();
+
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception("Đổi mật khẩu không thành công. Thử lại sau.");
+                    }
+                }
             }
-            base.CloseConnection();
-            return dataTable;
-        }*/
+           
+        }
 
     }
 }

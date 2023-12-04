@@ -43,15 +43,15 @@ namespace QL_Thue_Xe_Dap.Servive
                 return false;
             }
         }
-/*        public bool ChangePass(string taiKhoan, string matKhau)
+        public void DoiMatKhau(string taiKhoan, string matKhauCu, string matKhauMoi, string nhapLaiMatKhau)
         {
-            DataTable dataTable = nhanVienRepository.DoiMatKhau(taiKhoan, encryptionSHA(matKhau));
-
-            if (dataTable.Rows.Count > 0)
+            if (!matKhauMoi.Equals(nhapLaiMatKhau) )
             {
+                throw new Exception("Mật khẩu mới và xác nhận mật khẩu không khớp.");
+            }
+            nhanVienRepository.MatKhau(taiKhoan, matKhauCu, matKhauMoi);
 
-            } 
-        }*/
+        }
 
         public void DangXuat()
         {

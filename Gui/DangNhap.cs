@@ -87,5 +87,10 @@ namespace QL_Thue_Xe_Dap
             doiMatKhau.Show();
             this.Hide();
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
