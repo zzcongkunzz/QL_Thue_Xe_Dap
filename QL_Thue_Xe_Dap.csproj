@@ -96,8 +96,6 @@
         <Compile Include="Service\NhanVienService.cs" />
         <Compile Include="Service\NhomNguoiDungService.cs" />
         <Compile Include="Service\TaoDonThueXeService.cs" />
-        <Compile Include="Service\test2.cs" />
-        <Compile Include="Service\testGit.cs" />
         <Compile Include="Service\XeService.cs" />
         <EmbeddedResource Include="Gui\DangNhap.resx">
           <DependentUpon>DangNhap.cs</DependentUpon>
