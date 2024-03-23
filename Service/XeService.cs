@@ -88,5 +88,22 @@ namespace QL_Thue_Xe_Dap.Servive
 
             return dataTable;
         }
+        
+        public DataTable TestGit(DataTable dataTable, List<Xe> listXe)
+        {
+            List<string> listMaXe = listXe.Select(xe => xe.MaXe).ToList();
+
+            for (int i = dataTable.Rows.Count - 1; i >= 0; i--)
+            {
+                string maXeInDataTable = dataTable.Rows[i]["maXe"].ToString();
+
+                if (listMaXe.Contains(maXeInDataTable))
+                {
+                    dataTable.Rows.RemoveAt(i);
+                }
+            }
+
+            return dataTable;
+        }
     }
 }
